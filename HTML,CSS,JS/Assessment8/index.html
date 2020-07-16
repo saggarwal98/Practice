@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="SelectCar">
+        Please Choose  Car to get its Details
+    </label>
+    <select name="SelectCar" id="SelectCar" onchange="displayCarDetails()">
+        <option value="" disabled selected>Select One</option>
+        <option value="Innova">Innova</option>
+        <option value="Dzire">Dzire</option>
+        <option value="i20">i20</option>
+        <option value="i10">i10</option>
+    </select>
+    <p id="CarDetail"></p>
+    <script type="text/javascript" src="./index.js"></script>
+</body>
+</html>

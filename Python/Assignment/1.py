@@ -1,0 +1,1 @@
+print("\"Hello, Thank you\" Adam said.\n\"You're very welcome, Have a good day!\" Ron responded.")
