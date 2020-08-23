@@ -1,5 +1,5 @@
 from app import app
-from flask import render_template,request
+from flask import render_template,request,Response,json
 import os
 #default routes
 @app.route("/")
@@ -21,10 +21,21 @@ def contact():
     return render_template("contact.html")
 #route for internal fetching data from json file
 @app.route("/data_fetch")
-def data_fetch():
+def func():
     fn=open("./app/data/abc.json","r+")
     data=fn.readline()
-    return data
+    data1=json.loads(data)
+    print("func")
+    return Response(json.dumps(data1),mimetype="application/json")
+@app.route("/data_fetch/<idx>")
+def data_fetch(idx=None):
+    fn=open("./app/data/abc.json","r+")
+    data=fn.readline()
+    data1=json.loads(data)
+    if idx==None:
+        return data
+    else:
+        return Response(json.dumps(data1[int(idx)]),mimetype="application/json")
 #route for displaying data from json file into table
 @app.route("/data")
 def data():

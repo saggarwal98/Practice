@@ -10,7 +10,7 @@ print(map_list)
 print(type(map_list))
 print(map(lambda x,y: y/x,list2,list2))
 
-filter(lambda x : x>100 , list2)
+print(filter(lambda x : x>100 , list2))
 print(list2)
 
 print(reduce (lambda x,y:x*y,list1))

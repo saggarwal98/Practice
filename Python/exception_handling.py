@@ -1,9 +1,9 @@
 import sys
 try:
     x=float(input("Enter a number "))
-    y=1/x
-    if x<0:
+    if x<=0:
         raise ValueError()
+    y=1/x
     print()
     print("The reciprocal is: ",y)
 except ValueError:
