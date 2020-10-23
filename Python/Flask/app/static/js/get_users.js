@@ -1,0 +1,19 @@
+// $("document").ready(function(){
+//     $.get("/fetch_user_data",function(data,status){
+//         str=`<table>
+//         <tr>
+//         <th>Name</th>
+//         <th>Email</th>
+//         </tr>`
+//         for(i in data){
+//             user_name=i.user_name
+//             user_email=i.user_email
+//             str+=`<tr>
+//             <td>`+user_name+`</td>
+//             <td>`+user_email+`</td>
+//             </tr>`
+//         }
+//         str+=`</table>`
+//         $("#users").html(str)
+//     })
+// });

@@ -1,5 +1,5 @@
 $("document").ready(function(){
-    $.get("/data_fetch",function(data,status,as){
+    $.get("/data_fetch",function(data,status){
         // console.log(data)
         newobj=JSON.parse(data)
         str=`<table>

@@ -1,4 +1,4 @@
-from app import app
+from app import app,db,models
 from flask import render_template,request,Response,json
 import os
 #default routes
@@ -62,4 +62,30 @@ def register_data_post():
     age=request.form.get("age")
     gender=request.form.get("gender")
     return render_template("register_data.html",data={"name":name,"age":age,"gender":gender})
-#if want to display data in json format use json.dumps(data),mimetype="application/json" within Response function and import Response and json from flask
+
+@app.route("/get_user_data")
+def get_user_data():
+    return render_template("get_user_data.html")
+#Save user registration data and send user to homepage
+@app.route("/register_user",methods=["POST"])
+def register_user():
+    user_name=request.form.get("user_name")
+    user_email=request.form.get("user_email")
+    user_password=request.form.get("user_password")
+    u=models.User(user_name=user_name,user_email=user_email,user_password=user_password)
+    u.save()
+    return "Added user"
+#display details all users
+@app.route("/get_users")
+def get_users():
+    users=models.User.objects.all()
+    for i in users:
+        id=i.user_email
+        print(id)
+    return render_template("get_users.html",users=users)
+# @app.route("/fetch_user_data")
+# def fetch_user_data():
+#     users=User.objects.all()
+#     print(users)
+#     # print(users.view_details())
+#     return "users[0]"
