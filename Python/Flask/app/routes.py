@@ -1,4 +1,4 @@
-from app import app,db,models
+from app import app,db,models,forms
 from flask import render_template,request,Response,json
 import os
 #default routes
@@ -89,3 +89,7 @@ def get_users():
 #     print(users)
 #     # print(users.view_details())
 #     return "users[0]"
+@app.route("/login_form")
+def login_form():
+    form=forms.LoginForm()
+    return render_template("login_form.html",form=form,login=True)
